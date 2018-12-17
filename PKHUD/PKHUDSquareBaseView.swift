@@ -22,9 +22,10 @@ open class PKHUDSquareBaseView: UIView {
         super.init(coder: aDecoder)
     }
 
-    public init(image: UIImage? = nil, title: String? = nil, subtitle: String? = nil) {
-        super.init(frame: PKHUDSquareBaseView.defaultSquareBaseViewFrame)
+    public init(image: UIImage? = nil, title: String? = nil, subtitle: String? = nil, frame: CGRect? = nil, color: UIColor? = nil) {
+        super.init(frame: frame ?? PKHUDSquareBaseView.defaultSquareBaseViewFrame)
         self.imageView.image = image
+        self.imageView.tintColor = color
         titleLabel.text = title
         subtitleLabel.text = subtitle
 
@@ -74,7 +75,7 @@ open class PKHUDSquareBaseView: UIView {
         let halfHeight = CGFloat(ceilf(CFloat(viewHeight / 2.0)))
         let quarterHeight = CGFloat(ceilf(CFloat(viewHeight / 4.0)))
         let threeQuarterHeight = CGFloat(ceilf(CFloat(viewHeight / 4.0 * 3.0)))
-
+        imageView.contentMode = .scaleAspectFit
         titleLabel.frame = CGRect(origin: CGPoint(x: originX, y: 0.0), size: CGSize(width: viewWidth, height: quarterHeight))
         imageView.frame = CGRect(origin: CGPoint(x: originX, y: quarterHeight), size: CGSize(width: viewWidth, height: halfHeight))
         subtitleLabel.frame = CGRect(origin: CGPoint(x: originX, y: threeQuarterHeight), size: CGSize(width: viewWidth, height: quarterHeight))

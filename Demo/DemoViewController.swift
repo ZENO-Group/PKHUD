@@ -17,6 +17,15 @@ class DemoViewController: UIViewController {
         HUD.dimsBackground = false
         HUD.allowsInteraction = false
     }
+    
+    @IBAction func showAnimatedCustomHUD(_ sender: Any) {
+        let image = UIImage(named: "progress")
+        let frame = CGRect(origin: CGPoint.zero, size: CGSize(width: 56.0, height: 56.0))
+        let color = UIColor(red:0.23, green:0.8, blue:1, alpha:1)
+        HUD.show(.rotatingImageWithFrame(image, frame: frame, color: color))
+        HUD.hide(afterDelay: 2.0)
+    }
+    
 
     @IBAction func showAnimatedSuccessHUD(_ sender: AnyObject) {
         HUD.flash(.success, delay: 2.0)

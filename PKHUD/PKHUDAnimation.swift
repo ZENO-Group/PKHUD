@@ -60,7 +60,7 @@ public final class PKHUDAnimation {
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
         animation.fromValue = 0
         animation.toValue = 2.0 * .pi
-        animation.duration = 1.2
+        animation.duration = 0.8
         animation.repeatCount = Float(INT_MAX)
         return animation
     }()
